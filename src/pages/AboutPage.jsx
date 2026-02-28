@@ -1,7 +1,10 @@
 import "../styles/AboutPage.css";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 function AboutPage() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar />
@@ -9,9 +12,15 @@ function AboutPage() {
       <div className="about-container">
         <div className="about-hero">
           <h1>About Paradise Nursery</h1>
-          <p>
-            Bringing nature closer to your everyday life.
-          </p>
+          <p>Bringing nature closer to your everyday life.</p>
+
+          {/* NUEVO BOTÓN */}
+          <button
+            className="about-btn"
+            onClick={() => navigate("/plants")}
+          >
+            Explore Our Plants 🌿
+          </button>
         </div>
 
         <div className="about-content">
@@ -28,8 +37,7 @@ function AboutPage() {
             <h2>🌎 Sustainability</h2>
             <p>
               We are committed to sustainable practices, responsible sourcing,
-              and supporting eco-conscious living. Every plant we offer is
-              selected with care for both you and the environment.
+              and supporting eco-conscious living.
             </p>
           </div>
 
@@ -45,9 +53,7 @@ function AboutPage() {
         </div>
 
         <div className="about-footer">
-          <p>
-            Made with passion for design and development.
-          </p>
+          <p>Made with passion for design and development.</p>
         </div>
       </div>
     </>

@@ -44,6 +44,8 @@ function Navbar() {
   const title =
     location.pathname === "/cart"
       ? "Shopping Cart"
+      : location.pathname === "/about"
+      ? "About Us"
       : location.pathname === "/"
       ? "Welcome"
       : "Plants";
@@ -51,7 +53,12 @@ function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       {/* LOGO */}
-      <div className="logo" onClick={() => navigate("/plants")} role="button" tabIndex={0}>
+      <div
+        className="logo"
+        onClick={() => navigate("/plants")}
+        role="button"
+        tabIndex={0}
+      >
         <GiPlantSeed className="logo-icon" />
         <div>
           <h2>Paradise Nursery</h2>
@@ -60,23 +67,27 @@ function Navbar() {
       </div>
 
       {/* TITLE */}
-      <h2 className={`plants-title ${titleAnim ? "title-pop" : ""}`}>
-        {title}
-      </h2>
+      <h2 className={`plants-title ${titleAnim ? "title-pop" : ""}`}>{title}</h2>
 
-      {/* CART */}
-      <button
-        className={`cart ${animateCart ? "bounce" : ""}`}
-        onClick={() => navigate("/cart")}
-        aria-label="Go to cart"
-      >
-        <FaShoppingCart />
-        {totalItems > 0 && (
-          <span className={`cart-count ${animateCart ? "badge-pop" : ""}`}>
-            {totalItems}
-          </span>
-        )}
-      </button>
+      {/* RIGHT SIDE ACTIONS */}
+      <div className="nav-actions">
+        <button className="nav-link" onClick={() => navigate("/about")}>
+          About
+        </button>
+
+        <button
+          className={`cart ${animateCart ? "bounce" : ""}`}
+          onClick={() => navigate("/cart")}
+          aria-label="Go to cart"
+        >
+          <FaShoppingCart />
+          {totalItems > 0 && (
+            <span className={`cart-count ${animateCart ? "badge-pop" : ""}`}>
+              {totalItems}
+            </span>
+          )}
+        </button>
+      </div>
     </nav>
   );
 }
