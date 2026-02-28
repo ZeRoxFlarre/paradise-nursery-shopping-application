@@ -1,0 +1,364 @@
+/* =========================
+   LANDING PREMIUM + PARALLAX
+========================= */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .landing {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+  
+    /* parallax vars */
+    --mx: 0;
+    --my: 0;
+  }
+  
+  /* Background layer using ::before (parallax) */
+  .landing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    transform: translate(
+        calc(var(--mx) * -10px),
+        calc(var(--my) * -10px)
+      )
+      scale(1.06);
+  
+    transition: transform 180ms ease;
+    will-change: transform;
+    z-index: 0;
+  }
+  
+  /* Overlay */
+  .landing-overlay {
+    position: relative;
+    z-index: 1;
+  
+    height: 100%;
+    width: 100%;
+  
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.10),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 80% 30%,
+        rgba(255, 255, 255, 0.08),
+        transparent 50%
+      ),
+      rgba(0, 0, 0, 0.66);
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    padding: 60px 70px;
+    overflow: hidden;
+  }
+  
+  /* Vignette: oscurece bordes/esquinas */
+  .landing-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  
+    background: radial-gradient(
+      circle at center,
+      transparent 52%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+  
+    z-index: 0;
+  }
+  
+  /* Dynamic glow that follows mouse (más suave) */
+  .landing-overlay::after {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    pointer-events: none;
+  
+    background: radial-gradient(
+      circle at calc(50% + (var(--mx) * 18%)) calc(35% + (var(--my) * 12%)),
+      rgba(255, 255, 255, 0.07),
+      transparent 52%
+    );
+  
+    transition: 200ms ease;
+    z-index: 0;
+  }
+  
+  /* Content wrapper */
+  .landing-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 50px;
+    align-items: center;
+  
+    position: relative;
+    z-index: 1;
+  
+    animation: fadeUp 700ms ease forwards;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  
+  /* LEFT */
+  .landing-left {
+    color: white;
+  }
+  
+  .landing-title {
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0 0 14px 0;
+    letter-spacing: 0.2px;
+  }
+  
+  .landing-subtitle {
+    font-size: 20px;
+    opacity: 0.92;
+    margin: 0 0 28px 0;
+  }
+  
+  .landing-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  /* BUTTON */
+  .landing-btn {
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+  
+    color: white;
+    padding: 14px 24px;
+  
+    border-radius: 12px;
+  
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  
+    cursor: pointer;
+    transition: 0.25s ease;
+  
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+  
+  .landing-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.33);
+    filter: brightness(1.03);
+  }
+  
+  /* RIGHT */
+  .landing-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Glass card */
+  .landing-card {
+    width: 100%;
+    max-width: 520px;
+  
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+  
+    border-radius: 18px;
+    padding: 26px 26px;
+  
+    color: white;
+  
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  
+    /* parallax micro movement */
+    transform: translate(
+        calc(var(--mx) * 6px),
+        calc(var(--my) * 6px)
+      );
+    transition: transform 180ms ease;
+    will-change: transform;
+  
+    position: relative;
+    z-index: 1;
+  }
+  
+  .landing-card h3 {
+    margin: 0 0 14px 0;
+    font-size: 22px;
+    letter-spacing: 0.2px;
+  }
+  
+  .landing-card p {
+    margin: 0 0 12px 0;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 16px;
+  }
+  
+  /* Footer */
+  .landing-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 22px auto 0 auto;
+  
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  
+    position: relative;
+    z-index: 2;
+  
+    text-align: left;
+  }
+  
+  .signature {
+    font-weight: 700;
+    background: linear-gradient(90deg, #ffffff, #9be7a4);
+  
+    background-clip: text;          
+    -webkit-background-clip: text;
+  
+    -webkit-text-fill-color: transparent;
+    color: transparent;           
+  }
+  
+  /* Fade up animation */
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* =========================
+     SCROLL HINT (animated arrow)
+  ========================= */
+  
+  .scroll-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  
+    color: rgba(255, 255, 255, 0.78);
+    z-index: 2;
+  
+    user-select: none;
+  }
+  
+  .scroll-text {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .scroll-arrow {
+    width: 26px;
+    height: 26px;
+  
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.75);
+  
+    transform: rotate(45deg);
+    animation: arrowBounce 1.35s ease-in-out infinite;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+  }
+  
+  @keyframes arrowBounce {
+    0%   { transform: translateY(0) rotate(45deg); opacity: 0.65; }
+    55%  { transform: translateY(10px) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(0) rotate(45deg); opacity: 0.65; }
+  }
+  
+  /* =========================
+     RESPONSIVE
+  ========================= */
+  
+  @media (max-width: 980px) {
+    .landing-overlay {
+      padding: 40px 22px;
+    }
+  
+    .landing-content {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  
+    .landing-title {
+      font-size: 44px;
+    }
+  
+    .landing-right {
+      justify-content: flex-start;
+    }
+  
+    .landing-card {
+      max-width: 650px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .landing-title {
+      font-size: 36px;
+    }
+  
+    .landing-card {
+      padding: 20px;
+    }
+  }
+  
+  /* Hide scroll hint on small heights */
+  @media (max-height: 720px) {
+    .scroll-hint {
+      display: none;
+    }
+  }
+  
+  /* Respect accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .landing-content {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  
+    .landing::before {
+      transition: none;
+      transform: none;
+    }
+  
+    .landing-card {
+      transition: none;
+      transform: none;
+    }
+  
+    .scroll-arrow {
+      animation: none;
+    }
+  }
