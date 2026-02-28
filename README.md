@@ -2,7 +2,7 @@
 
 A modern, responsive e-commerce front-end built with React + Vite, featuring a dynamic shopping cart, animated UI, and production-ready deployment.
 
-🔗 Live Demo: https://lighthearted-piroshki-0585eb.netlify.app/
+🔗 Live Demo: https://paradisshopping.netlify.app/
 
 📦 Repository: https://github.com/ZeRoxFlarre/paradise-nursery-shopping-application
 
