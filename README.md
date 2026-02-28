@@ -1,16 +1,128 @@
-# React + Vite
+🌿 Paradise Nursery Shopping Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive e-commerce front-end built with React + Vite, featuring a dynamic shopping cart, animated UI, and production-ready deployment.
 
-Currently, two official plugins are available:
+🔗 Live Demo: https://lighthearted-piroshki-0585eb.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📦 Repository: https://github.com/ZeRoxFlarre/paradise-nursery-shopping-application
 
-## React Compiler
+🚀 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Paradise Nursery is a fully responsive plant shopping application that allows users to:
 
-## Expanding the ESLint configuration
+Browse categorized plants
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Add items to a shopping cart
+
+Adjust quantities
+
+Remove items
+
+View total cost dynamically
+
+Persist cart state using localStorage
+
+The application was built with a strong focus on clean UI, smooth animations, and scalable state management.
+
+🛠️ Built With
+
+⚛️ React 19
+
+⚡ Vite
+
+🧭 React Router
+
+🎯 Context API (Global State Management)
+
+🎨 Custom CSS Animations
+
+☁️ Netlify (Deployment)
+
+✨ Features
+
+Responsive landing page with parallax and animated scroll hint
+
+Categorized product listing
+
+Animated add-to-cart interactions
+
+Dynamic cart badge with bounce effect
+
+Fully functional cart page (increase, decrease, remove)
+
+Persistent cart using localStorage
+
+Production-ready routing configuration for Netlify
+
+📂 Project Structure
+src/
+│
+├── components/
+│   ├── Navbar.jsx
+│   └── PlantCard.jsx
+│
+├── context/
+│   └── CartContext.jsx
+│
+├── pages/
+│   ├── LandingPage.jsx
+│   ├── PlantsPage.jsx
+│   └── CartPage.jsx
+│
+├── styles/
+│
+├── data/
+│
+└── main.jsx
+🧠 Key Concepts Implemented
+
+Global state management using React Context
+
+Memoized total calculations with useMemo
+
+Route-based rendering using React Router
+
+Case-sensitive path handling for production environments
+
+Deployment configuration with Netlify redirects
+
+📦 Installation
+
+To run locally:
+
+git clone https://github.com/ZeRoxFlarre/paradise-nursery-shopping-application
+cd TUREPO
+npm install
+npm run dev
+
+To build for production:
+
+npm run build
+🌐 Deployment
+
+This project is deployed using Netlify with proper routing configuration to support React Router.
+
+Redirect configuration included via:
+
+netlify.toml
+👨‍💻 Author
+
+Miguel A. Quiñones Aleman
+Frontend Developer
+Made with ❤️ using React
+
+📈 Future Improvements
+
+Product filtering and search
+
+Dark mode toggle
+
+Backend integration (Node / Express)
+
+Payment integration (Stripe)
+
+Admin product management
+
+⭐ If you like this project
+
+Give it a star on GitHub!
